@@ -1,0 +1,1 @@
+/home/yuhan.liu/typhoon-blade/vim/ftdetect/blade_root.vim

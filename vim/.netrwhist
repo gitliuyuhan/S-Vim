@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/home/yuhan.liu/workspace/game_tab/src/handler'
+let g:netrw_dirhist_2='/home/yuhan.liu/workspace/game_tab/src'
+let g:netrw_dirhist_3='/home/yuhan.liu/soft/python_module/cmodule/InkeSessionUtil'
+let g:netrw_dirhist_4='/home/yuhan.liu/workspace/game_tab/src/handler'
+let g:netrw_dirhist_5='/home/yuhan.liu/workspace'
+let g:netrw_dirhist_6='/home/yuhan.liu/workspace/game_tab/src'
+let g:netrw_dirhist_7='/home/yuhan.liu/workspace/game_tab/src/config'
+let g:netrw_dirhist_8='/home/yuhan.liu/workspace/test/logs'
