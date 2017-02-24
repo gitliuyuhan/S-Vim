@@ -12,11 +12,11 @@
 7. tagBar函数、变量、类浏览
 
 ## 文件浏览NerdTree
-- F4 &emsp打开/关闭
-- o键 &emsp在当前窗口打开新文件
-- i键 &emsp分屏打开新文件
-- 鼠标双击 &emsp相当于按o键
-- Ctrl-t &emsp返回原文件
+- F4 &emsp;打开/关闭
+- o键 &emsp;在当前窗口打开新文件
+- i键 &emsp;分屏打开新文件
+- 鼠标双击 &emsp;相当于按o键
+- Ctrl-t &emsp;返回原文件
 
 ## 大纲式导航TagBar
-- F3 &emsp打开/关闭
+- F3 &emsp;打开/关闭
