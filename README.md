@@ -20,3 +20,4 @@
 
 ## 大纲式导航TagBar
 - F3 &emsp;打开/关闭
+- Ctrl-o &emsp;返回到上次位置

@@ -1,7 +1,12 @@
 syntax enable
 set t_Co=256
 set nocompatible
+set backspace=indent,eol,start
 set nu
+" 底部状态栏
+set laststatus=2
+" 显示文件的全路径
+set statusline=[%F]\ \ \ \ %l,%c-%v\ \ \ \ %p%%
 syntax on
 filetype plugin indent on
 set autoindent
@@ -23,6 +28,13 @@ set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s "c/C++缩进
 """""""Python文法识别
 set filetype=Python
 au BufNewFile,BufRead *.py,*.pyw setf python
+
+"""""""代码折叠
+" 根据缩进折叠
+set foldmethod=indent
+set foldlevel=99
+" 空格键
+nnoremap <space> za
 
 """""""pathogen插件管理
 execute pathogen#infect()
@@ -81,6 +93,12 @@ map <F3> :Tagbar<CR>
 "autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 "如果是c语言的程序的话，tagbar自动开启
 "
+
+""""""""解决代码折叠过多的问题
+Plugin 'tmhedberg/SimpylFold'
+" 显示折叠代码的文档字符串
+"let g:SimpylFold_docstring_preview=1
+
 """"""""文件浏览NerdTree
 Plugin 'https://github.com/scrooloose/nerdtree'
 map <F4> :NERDTreeToggle<CR>
@@ -92,6 +110,30 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
             \ exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 "nerdtree的配色，没搞懂
 "Plugin 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight'
+
+""""" CtrlP查找文件
+Plugin 'kien/ctrlp.vim'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" 与ctrlp_custom_ignore,ctrlp_show_hidden冲突
+"let g:ctrlp_user_command = 'find %s -type f'
+" 使用文件模式搜索
+let g:ctrlp_by_filename = 1
+" 忽略的文件
+"let g:ctrlp_custom_ignore = {
+"  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+"  \ 'file': '\v\.(pyc|swp)$',
+"  \ 'link': 'some_bad_symbolic_links',
+"  \ }
+let g:ctrlp_custom_ignore = {
+   \ 'file': '\v\.(pyc|swp)$'
+   \ }
+"
+"  Ctrl+p 启动
+"  Ctrl+d 路径模式/文件模式切换
+"  Ctrl+x 水平分割窗口打开
+"  Ctrl+v 垂直分割窗口打开
+"
 
 """"""""clang_complete
 Plugin 'https://github.com/Rip-Rip/clang_complete'
@@ -139,6 +181,10 @@ let g:javascript_plugin_flow = 1
 "let g:javascript_conceal_noarg_arrow_function = "������"
 "let g:javascript_conceal_underscore_arrow_function = "������"
 "set conceallevel=1
+"
+
+""""""""Go
+Plugin 'https://github.com/fatih/vim-go.git'
 
 """""""CsApp更接近gvim配色
 Plugin 'https://github.com/godlygeek/csapprox'
@@ -147,15 +193,29 @@ Plugin 'https://github.com/godlygeek/csapprox'
 Plugin 'cohlin/vim-colorschemes'
 """""""solorized配色
 Plugin 'https://github.com/altercation/vim-colors-solarized.git'
-set background=dark
-let g:solarized_termcolors=256
-if &background == "dark"
-    let g:solarized_termtrans=1
-endif
-:colorscheme solarized
+"set background=dark
+"let g:solarized_termcolors=256
+"if &background == "dark"
+"    let g:solarized_termtrans=1
+"endif
+":colorscheme solarized
+
+":colorscheme py-darcula
+:colorscheme desert
 
 """""""设置当前行列的高亮
 set cursorline
 "hi CursorLine   cterm=NONE ctermbg=darkgrey ctermfg=white
 set cursorcolumn
 "hi CursorColumn cterm=NONE ctermbg=darkgray ctermfg=white 
+augroup filetype
+    autocmd! BufRead,BufNewFile BUILD set filetype=blade
+augroup end
+
+"""""""ctags
+map <F5> :!ctags -R --c++-kinds=+pl --fields=+iaS --extra=+q <CR>
+set tags=tags;
+set autochdir
+
+""""""""
+
