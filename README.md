@@ -21,3 +21,8 @@
 ## 大纲式导航TagBar
 - F3 &emsp;打开/关闭
 - Ctrl-o &emsp;返回到上次位置
+
+## 配置
+1. cp ./vimrc ~/.vimrc
+2. 安装Vundle:git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+3. 安装Vundle插件:PluginInstall
